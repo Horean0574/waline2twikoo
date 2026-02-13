@@ -132,7 +132,26 @@ waline2twikoo/
 ```
 
 ## 🔄 数据映射关系
-
+| Waline 字段 | Twikoo 字段 | 类型 | 转换说明 |
+|------------|------------|------|----------|
+| `nick` | `nick` | string | 昵称，直接复制 |
+| `mail` | `mail` | string | 邮箱，直接复制 |
+| | `mailMd5` | string | 自动计算 MD5，用于 Gravatar |
+| `link` | `link` | string | 个人网站 |
+| `ua` | `ua` | string | 用户代理 |
+| `ip` | `ip` | string | IP 地址 |
+| `url` | `url` | string | URL 编码处理 |
+| | `href` | string | 完整评论链接（自动生成） |
+| `comment` | `comment` | string | Markdown → HTML |
+| `objectId` | `_id` | string | 重新生成 UUID |
+| `pid` | `pid` | string/null | 父评论 ID 映射 |
+| `rid` | `rid` | string/null | 根评论 ID 映射 |
+| | `uid` | string | 用户唯一标识 |
+| | `master` | boolean | 博主标记 |
+| `status` | `isSpam` | boolean | 垃圾评论标记 |
+| `sticky` | `top` | boolean | 置顶标记 |
+| `insertedAt` | `created` | integer | Unix 毫秒时间戳 |
+| `updatedAt` | `updated` | integer | Unix 毫秒时间戳 |
 
 ## ❓ 常见问题
 ### Q1: 转换失败怎么办？
